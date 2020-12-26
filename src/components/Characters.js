@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Chara from './Chara'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 function Characters() {
 
@@ -156,36 +157,46 @@ function Characters() {
     return (
         <div className="characters_container animate__animated animate__fadeIn">
             {loading ? <div className="loader"><div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div> : <div className="slider_characters">
-                <h2 className="character_player">Survive95 <i className="fas fa-caret-down"></i></h2>
-                <ul className="player_list">
-                    {datas.map((item, index) => {
-                        if (item.player === 1) {
-                            return (
-                                <Chara key={index} data={item}></Chara>
-                            )
-                        }
-                    })}
-                </ul>
-                <h2 className="character_player">SaNka <i className="fas fa-caret-down"></i></h2>
-                <ul className="player_list">
-                    {datas.map((item, index) => {
-                        if (item.player === 2) {
-                            return (
-                                <Chara key={index} data={item}></Chara>
-                            )
-                        }
-                    })}
-                </ul>
-                <h2 className="character_player">Othior <i className="fas fa-caret-down"></i></h2>
-                <ul className="player_list">
-                    {datas.map((item, index) => {
-                        if (item.player === 3) {
-                            return (
-                                <Chara key={index} data={item}></Chara>
-                            )
-                        }
-                    })}
-                </ul>
+                <Tabs>
+                    <TabList>
+                        <Tab>Survive95</Tab>
+                        <Tab>SaNka</Tab>
+                        <Tab>Othior</Tab>
+                    </TabList>
+                    <TabPanel>
+                        <ul className="player_list animate__animated animate__fadeIn">
+                            {datas.map((item, index) => {
+                                if (item.player === 1) {
+                                    return (
+                                        <Chara key={index} data={item}></Chara>
+                                    )
+                                }
+                            })}
+                        </ul>
+                    </TabPanel>
+                    <TabPanel>
+                        <ul className="player_list animate__animated animate__fadeIn">
+                            {datas.map((item, index) => {
+                                if (item.player === 2) {
+                                    return (
+                                        <Chara key={index} data={item}></Chara>
+                                    )
+                                }
+                            })}
+                        </ul>
+                    </TabPanel>
+                    <TabPanel>
+                        <ul className="player_list animate__animated animate__fadeIn">
+                            {datas.map((item, index) => {
+                                if (item.player === 3) {
+                                    return (
+                                        <Chara key={index} data={item}></Chara>
+                                    )
+                                }
+                            })}
+                        </ul>
+                    </TabPanel>
+                </Tabs>
             </div>}
         </div>
     )

@@ -6,12 +6,12 @@ import {
   Link,
   NavLink
 } from "react-router-dom";
-import white_logo from './assets/white_logo.svg'
 import Home from './components/Home';
 import Characters from './components/Characters';
 import Elcode from './components/Elcode';
 import { useEffect, useState } from 'react';
 import Cursor from './components/Cursor';
+import Header from './components/Header';
 
 
 function App() {
@@ -19,16 +19,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Cursor></Cursor>
-        <header className="header_app">
-          <div className="header_app-container">
-            <Link className="header_link" to="/"><h1 className="header_title"><img className="logo_title" src={white_logo}></img></h1></Link>
-            <nav className="header_nav">
-              <NavLink exact to="/">Accueil</NavLink>
-              <NavLink exact to="/characters">Nos personnages</NavLink>
-            </nav>
-          </div>
-        </header>
+        {/* <Cursor></Cursor> */}
+        <Header></Header>
         <main className="main_app">
           <Route exact path="/" component={Home}></Route>
           <Route exact path="/characters" component={Characters}></Route>

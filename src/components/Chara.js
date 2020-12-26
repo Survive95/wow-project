@@ -2,19 +2,9 @@ import React, { createRef } from 'react'
 
 function Chara(props){
 
-    const image = createRef()
-
-    const changeImage = function(){
-        image.current.style.backgroundImage = `url('${props.data.main}')`
-    }
-
-    const leaveImage = function(){
-        image.current.style.backgroundImage = `url('${props.data.mainr}')`
-    }
-
     return (
         <a rel="noreferrer" href={props.data.wowlink} target="_blank">
-            <li ref={image} onMouseLeave={() => leaveImage()} onMouseEnter={() => changeImage()} style={{ backgroundImage: `url('${props.data.mainr}')` }}>
+            <li style={{ backgroundImage: `url('${props.data.main}')` }}>
                 <div className="player_top">
                     <div className="player_details">
                         <p>{props.data.name}</p>

@@ -23,14 +23,47 @@ function Home() {
     var date_event = next(new Date());
 
     let day_event = new Date(date_event).getDate()
-    let month_event = new Date(date_event).getUTCMonth() + 1 
+    let month_event = new Date(date_event).getUTCMonth() + 1
     let years_event = new Date(date_event).getFullYear()
 
     let end_date_event = `${month_event}/${day_event}/${years_event} 07:00:00`
 
+    let now_day = new Date().getDate()
+    let now_month = new Date().getUTCMonth() +1
+    let now_years = new Date().getFullYear()
+
+    let end_time = `${now_month}/${now_day}/${now_years} 07:00:00`
+
+    console.log(end_time)
+
     let date_event_mili = new Date(end_date_event).getTime()
 
     window.scrollTo(0, 0)
+
+    const renderer = ({ hours, minutes, seconds, completed }) => {
+        if (completed) {
+          // Render a completed state
+        } else {
+          // Render a countdown
+          return <span>{hours}h {minutes}m {seconds}s</span>;
+        }
+      };
+
+    const renderer2 = ({ days ,hours, minutes, seconds, completed }) => {
+        if (completed) {
+          // Render a completed state
+        } else {
+          // Render a countdown
+          return <span>{days}j {hours}h {minutes}m {seconds}s</span>;
+        }
+      };
+
+    const scrollDown = function(){
+        window.scrollTo({
+            top : 900,
+            behavior : 'smooth'
+        })
+    }
 
     return (
         <section className="home_container animate__animated animate__fadeIn">
@@ -38,9 +71,10 @@ function Home() {
                 <video className="home_video" autoPlay loop src={video}></video>
                 <div className="home_video_content">
                     <h2 className="home_video-title">WoW Project</h2>
-                    <p className="home_video-text">Réinitialisation hebdomadaire de World of Warcraft dans...</p>
-                    <p className="home_video-count"><Countdown date={date_event_mili + 3600000}></Countdown></p>
-                    <i className="home_arrow fas fa-arrow-down"></i>
+                    <p className="home_video-text">Réinitialisation de World of Warcraft</p>
+                    <p className="home_video-count">Hebdomadaire : <Countdown renderer={renderer2} date={date_event_mili}></Countdown></p>
+                    <p className="home_video-count">Quotidienne : <Countdown renderer={renderer} date={end_time}></Countdown></p>
+                    <i onClick={() => scrollDown()} className="home_arrow fas fa-arrow-down"></i>
                 </div>
             </div>
             <div className="home_content">
