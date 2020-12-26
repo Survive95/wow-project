@@ -40,24 +40,6 @@ function Home() {
 
     window.scrollTo(0, 0)
 
-    const renderer = ({ hours, minutes, seconds, completed }) => {
-        if (completed) {
-          // Render a completed state
-        } else {
-          // Render a countdown
-          return <span>{hours}h {minutes}m {seconds}s</span>;
-        }
-      };
-
-    const renderer2 = ({ days ,hours, minutes, seconds, completed }) => {
-        if (completed) {
-          // Render a completed state
-        } else {
-          // Render a countdown
-          return <span>{days}j {hours}h {minutes}m {seconds}s</span>;
-        }
-      };
-
     const scrollDown = function(){
         window.scrollTo({
             top : 900,
@@ -72,8 +54,8 @@ function Home() {
                 <div className="home_video_content">
                     <h2 className="home_video-title">WoW Project</h2>
                     <p className="home_video-text">Réinitialisation de World of Warcraft</p>
-                    <p className="home_video-count">Hebdomadaire : <Countdown renderer={renderer2} date={date_event_mili}></Countdown></p>
-                    <p className="home_video-count">Quotidienne : <Countdown renderer={renderer} date={end_time}></Countdown></p>
+                    <p className="home_video-count">Hebdomadaire : <Countdown  date={date_event_mili}></Countdown></p>
+                    {/* <p className="home_video-count">Quotidienne : <Countdown date={end_time}></Countdown></p> */}
                     <i onClick={() => scrollDown()} className="home_arrow fas fa-arrow-down"></i>
                 </div>
             </div>
