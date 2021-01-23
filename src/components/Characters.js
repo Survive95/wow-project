@@ -95,7 +95,7 @@ function Characters() {
         axios({
             auth: {
                 username: "86ae002bc5a640c79807aad0a27d9d89",
-                password: "5aZWOv3IIm34p4vWazqushBYqwQgV2iI"
+                password: "2vG911ofOEHiTJe6PuHbyin7X6OA65CE"
             },
             method: 'post',
             url: 'https://eu.battle.net/oauth/token',

@@ -381,7 +381,7 @@ body{
 }
 
 .player_list a:hover li{
-  box-shadow: var(--boxShadow);
+  transform: scale(1.02);
 }
 
 .player_list li{
@@ -613,3 +613,22 @@ body{
 
 
 /*FOOTER*/
+
+
+/*SWIPER*/
+
+.swiper-container {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+
+/*SWIPER*/
